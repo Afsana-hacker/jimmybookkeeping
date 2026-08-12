@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Ultra High-End Metallic Liquid Gold Gradient -->
+    <linearGradient id="ropeGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE8B2" />
+      <stop offset="25%" stop-color="#C5A059" />
+      <stop offset="50%" stop-color="#8A6827" />
+      <stop offset="75%" stop-color="#E5C158" />
+      <stop offset="100%" stop-color="#9E792F" />
+    </linearGradient>
+
+    <!-- Deep Luxury Royal Blue Outer Ring Gradient -->
+    <linearGradient id="royalRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00122E" />
+      <stop offset="100%" stop-color="#050A14" />
+    </linearGradient>
+
+    <!-- Glow Effect for Gold Monogram -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#C5A059" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Deep Obsidian Black Background Base -->
+  <rect width="500" height="500" rx="60" fill="#07090C"/>
+  
+  <!-- Subtle Royal Blue Crest Ring -->
+  <circle cx="250" cy="250" r="215" fill="url(#royalRing)" stroke="url(#ropeGold)" stroke-width="2" stroke-opacity="0.4"/>
+  <circle cx="250" cy="250" r="200" fill="none" stroke="url(#ropeGold)" stroke-width="1" stroke-dasharray="6,6" opacity="0.5"/>
+
+  <!-- Fluid Ribbon / Luxury Italic Calligraphic Monogram 'J' -->
+  <g filter="url(#goldGlow)">
+    <!-- Top Fluid Ribbon Swirl (Fluid Italic Loop) -->
+    <path d="M 130 180 C 120 120, 260 110, 340 140 C 380 155, 390 190, 350 200 C 310 210, 230 180, 180 190 C 150 195, 135 220, 160 225 C 190 230, 280 200, 330 205" 
+          fill="none" stroke="url(#ropeGold)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Main Italic Descending Stem with Rope Curvature -->
+    <path d="M 310 170 C 310 240, 280 330, 240 380 C 200 430, 130 430, 110 380 C 95 340, 135 295, 175 310 C 210 325, 205 370, 170 370 C 145 370, 135 350, 145 335" 
+          fill="none" stroke="url(#ropeGold)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Decorative Calligraphic Flourish Swirls -->
+    <path d="M 235 240 C 275 240, 370 280, 390 320 C 405 350, 385 375, 360 370 C 330 365, 310 330, 335 295" 
+          fill="none" stroke="url(#ropeGold)" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Luxury Crest Accents (Golden Diamond Star) -->
+    <polygon points="250,75 256,90 271,96 256,102 250,117 244,102 229,96 244,90" fill="url(#ropeGold)"/>
+  </g>
+</svg>
