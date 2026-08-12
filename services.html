@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services &amp; Architecture | Jimmy Bookkeeping ,Accounting &amp; Tax Services</title>
+<link rel="icon" type="image/svg+xml" href="images/logo.svg">
+<meta name="description" content="Comprehensive tier breakdowns and estimation modeling for enterprise accounting services.">
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <!-- EXACTLY HERE: Logo + Brand Name -->
+    <a href="index.html" class="brand" style="display:flex; align-items:center; gap:16px;">
+      <img src="images/logo.svg" alt="Jimmy Corporate Monogram" style="height:52px; width:52px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
+      <div class="brand-name">
+        Jimmy Accounting 
+        <span style="color:var(--accent-gold); font-family:var(--font-mono); font-size:10px; letter-spacing:0.18em; display:block;">CORPORATE PRACTICE</span>
+      </div>
+    </a>
+
+    <nav class="links">
+      <a href="index.html">Firm</a>
+      <a href="services.html" class="active">Services &amp; Architecture</a>
+      <a href="about.html">Governance</a>
+      <a href="contact.html">Consultation</a>
+      <a href="contact.html" class="btn">Retain Practice</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section-pad">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="mono" style="color:var(--accent-gold); margin-bottom:12px;">Service Architecture</div>
+        <h2>Execution Frameworks</h2>
+        <p>Select the precise operational tier designed for your commercial structure.</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="mono" style="color:var(--accent-gold); margin-bottom:16px;">TIER I</div>
+          <h3>System Initialization</h3>
+          <p style="color:var(--text-dim); font-size:13px; margin-bottom:16px;">FOR NEW ENTITIES</p>
+          <ul style="color:var(--text-muted); font-size:14px; list-style:none; line-height:2;">
+            <li>Custom Chart of Accounts Build</li>
+            <li>Opening Balance Matrix Verification</li>
+            <li>Payment Processing Integration</li>
+            <li>1-on-1 Operational System Protocol</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-color:var(--accent-gold);">
+          <div class="mono" style="color:var(--accent-gold); margin-bottom:16px;">TIER II</div>
+          <h3>Core Ledger Oversight</h3>
+          <p style="color:var(--text-dim); font-size:13px; margin-bottom:16px;">ESTABLISHED BUSINESSES</p>
+          <ul style="color:var(--text-muted); font-size:14px; list-style:none; line-height:2;">
+            <li>Monthly Multi-Account Reconciliation</li>
+            <li>Up to 300 Managed Transactions</li>
+            <li>Quarterly Balance Sheet &amp; Cash Flow</li>
+            <li>Quarterly Executive Briefings</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="mono" style="color:var(--accent-gold); margin-bottom:16px;">TIER III</div>
+          <h3>Full Controllership</h3>
+          <p style="color:var(--text-dim); font-size:13px; margin-bottom:16px;">ENTERPRISE / MULTI-ENTITY</p>
+          <ul style="color:var(--text-muted); font-size:14px; list-style:none; line-height:2;">
+            <li>Uncapped Transaction Processing</li>
+            <li>Monthly Executive Performance Audits</li>
+            <li>Debt &amp; Loan Amortization Management</li>
+            <li>Direct Vendor Accounts Payable Management</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Volume & Retainer Calculator Section -->
+  <section class="section-pad raised">
+    <div class="wrap" style="max-width:800px;">
+      <div class="section-head">
+        <div class="mono" style="color:var(--accent-gold); margin-bottom:12px;">Interactive Modeling</div>
+        <h2>Retainer Estimator</h2>
+        <p>Adjust your estimated monthly ledger transaction volume to see baseline retainer guidelines.</p>
+      </div>
+
+      <div class="consult-form-container">
+        <div class="field full" style="margin-bottom:32px;">
+          <label for="calc_tx">Monthly Transaction Range</label>
+          <input type="range" id="calc_tx" min="50" max="500" step="10" value="100" style="margin-top:16px; cursor:pointer;">
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-subtle); padding-top:24px;">
+          <span class="mono" style="color:var(--text-muted);">Estimated Retainer:</span>
+          <span id="calc_output" style="font-family:var(--font-heading); font-size:32px; color:var(--accent-gold); font-weight:700;">$350 / month</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>&copy; 2026 Jimmy Bookkeeping ,Accounting &amp; Tax Services. All corporate rights reserved.</span>
+      <span>all nationwide USA</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
