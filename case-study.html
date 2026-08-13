@@ -1,38 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Studies | Jimmy Bookkeeping</title>
-  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
-
-  <link rel="stylesheet" href="css/style.css?v=102">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies & Insights | Jimmy Bookkeeping, Accounting & Tax Services</title>
+<link rel="icon" type="image/svg+xml" href="images/logo.svg">
+<meta name="description" content="Examine how our strategic financial oversight transformed operations and profitability for corporate partners.">
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
+
+<!-- Consultation Popup Modal -->
+<div class="modal-overlay" id="consultModal">
+  <div class="modal-container">
+    <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+    <div class="consult-form-container">
+      <h2>Initiate Practice Retainer</h2>
+      <p class="form-desc">Complete the formal inquiry protocol below. Our senior desk evaluates all corporate submissions within 24 hours.</p>
+      
+      <form id="consultationForm" method="POST">
+        <input type="hidden" name="access_key" value="e2ac6dbc-7b9f-40e2-932b-87dc95ccae51">
+        
+        <div class="form-row">
+          <div class="field">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Arthur" required>
+          </div>
+          <div class="field">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="Pendelton" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Corporate Email</label>
+            <input type="email" id="email" name="email" placeholder="a.pendelton@enterprise.com" required>
+          </div>
+          <div class="field">
+            <label for="phone">Direct Contact Line</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (310) 000-0000">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field full">
+            <label for="service">Requested Practice Area</label>
+            <select id="service" name="service">
+              <option value="Select Area">Select Practice Area...</option>
+              <option value="Foundation Setup">Foundation Setup</option>
+              <option value="Monthly Bookkeeping">Monthly Bookkeeping</option>
+              <option value="Full Service Management">Full Service Management</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="dynamicFieldGroup" class="form-row"></div>
+
+        <div class="form-row">
+          <div class="field full">
+            <label for="notes">Commercial Context &amp; Objectives</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Brief details regarding current software, entity model, and primary accounting objectives..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn" style="width:100%; margin-top:16px;">Submit Consultation Request</button>
+      </form>
+    </div>
+  </div>
+</div>
+
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="nav">
-      <div class="brand">
-        <div class="brand-name">
-          JIMMY <span>BOOKKEEPING</span>
-        </div>
+<!-- Header -->
+<header>
+  <div class="nav wrap">
+    <a href="index.html" class="brand">
+      <img src="images/logo.svg" alt="Jimmy Corporate Monogram" class="brand-logo">
+      <div class="brand-name">
+        Jimmy Accounting 
+        <span>CORPORATE PRACTICE</span>
       </div>
-      <nav class="links">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="case-study.html" class="active">Case Studies</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="btn btn-outline">Consultation</a>
-      </nav>
-    </div>
-  </header>
+    </a>
 
+    <!-- Hamburger Menu Toggle Button for Mobile/Tablet -->
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation Drawer Links -->
+    <nav class="links" id="navLinks">
+      <div class="mobile-drawer-header">
+        <div class="brand-name">Jimmy Accounting</div>
+        <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+      </div>
+      <a href="index.html">Firm</a>
+      <a href="services.html">Services &amp; Architecture</a>
+      <a href="about.html">Governance</a>
+      <a href="case-study.html" class="active">Case Studies</a>
+      <a href="contact.html">Consultation</a>
+      <button class="btn btn-trigger-modal">Retain Practice</button>
+    </nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+  </div>
+</header>
+
+<main>
   <!-- Hero Section -->
   <section class="hero">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow mono">Proven Financial Success</div>
+        <div class="mono" style="color:var(--accent-gold); margin-bottom:12px;">Proven Financial Success</div>
         <h1 class="headline">Client <em>Case Studies</em> &amp; Insights</h1>
         <p class="lead">Examine how our strategic financial oversight and tailored bookkeeping solutions transformed operations and profitability for corporate partners.</p>
       </div>
@@ -46,26 +126,32 @@
 
         <!-- Case Study 1: Real Estate & Holdings -->
         <div class="card">
-          <div class="mono" style="margin-bottom: 12px;">Real Estate &amp; Holdings</div>
-          <h3>Portfolio Financial Structuring</h3>
-          <p>Restructured account ledgers across a multi-entity asset portfolio, eliminating reconciliation backlogs and identifying 14% tax optimization avenues.</p>
-          <a href="case-study-real-estate.html" class="btn btn-outline" style="width: 100%; text-align: center;">View Detailed Analysis</a>
+          <div>
+            <div class="mono" style="color:var(--accent-gold); margin-bottom:12px;">Real Estate &amp; Holdings</div>
+            <h3>Portfolio Financial Structuring</h3>
+            <p>Restructured account ledgers across a multi-entity asset portfolio, eliminating reconciliation backlogs and identifying 14% tax optimization avenues.</p>
+          </div>
+          <a href="case-study-real-estate.html" class="btn btn-outline" style="width: 100%; text-align: center; margin-top:16px;">View Detailed Analysis</a>
         </div>
 
         <!-- Case Study 2: E-Commerce Operations -->
         <div class="card">
-          <div class="mono" style="margin-bottom: 12px;">E-Commerce Operations</div>
-          <h3>Global Cash Flow Optimization</h3>
-          <p>Integrated automated multi-currency tracking for international payment gateways, cutting month-end closing timelines by 60%.</p>
-          <a href="case-study-ecommerce.html" class="btn btn-outline" style="width: 100%; text-align: center;">View Detailed Analysis</a>
+          <div>
+            <div class="mono" style="color:var(--accent-gold); margin-bottom:12px;">E-Commerce Operations</div>
+            <h3>Global Cash Flow Optimization</h3>
+            <p>Integrated automated multi-currency tracking for international payment gateways, cutting month-end closing timelines by 60%.</p>
+          </div>
+          <a href="case-study-ecommerce.html" class="btn btn-outline" style="width: 100%; text-align: center; margin-top:16px;">View Detailed Analysis</a>
         </div>
 
         <!-- Case Study 3: Corporate Advisory -->
         <div class="card">
-          <div class="mono" style="margin-bottom: 12px;">Corporate Advisory</div>
-          <h3>Debt Assumption &amp; Reorganisation</h3>
-          <p>Provided comprehensive audit dossiers and debt restructuring ledgers for a cross-border acquisition, safeguarding equity valuation.</p>
-          <a href="case-study-debt.html" class="btn btn-outline" style="width: 100%; text-align: center;">View Detailed Analysis</a>
+          <div>
+            <div class="mono" style="color:var(--accent-gold); margin-bottom:12px;">Corporate Advisory</div>
+            <h3>Debt Assumption &amp; Reorganisation</h3>
+            <p>Provided comprehensive audit dossiers and debt restructuring ledgers for a cross-border acquisition, safeguarding equity valuation.</p>
+          </div>
+          <a href="case-study-debt.html" class="btn btn-outline" style="width: 100%; text-align: center; margin-top:16px;">View Detailed Analysis</a>
         </div>
 
       </div>
@@ -78,40 +164,45 @@
       <div class="consult-form-container" style="text-align: center;">
         <h2>Elevate Your Financial Precision</h2>
         <p style="color: var(--text-muted); margin-bottom: 28px; max-width: 600px; margin-left: auto; margin-right: auto;">Schedule an executive review of your corporate accounts and explore customized growth strategies.</p>
-        <a href="contact.html" class="btn">Request Executive Briefing</a>
+        <button class="btn btn-trigger-modal">Request Executive Briefing</button>
       </div>
     </div>
   </section>
+</main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="wrap">
-      <div class="footer-grid">
-        <div>
-          <div class="brand-name" style="margin-bottom: 16px;">JIMMY <span>BOOKKEEPING</span></div>
-          <p style="color: var(--text-muted); font-size: 14px;">Delivering high-precision financial management, bookkeeping, and advisory services for growing enterprises globally.</p>
-        </div>
-        <div>
-          <h4 style="margin-bottom: 16px; color: var(--accent-gold);">Navigation</h4>
-          <p><a href="index.html">Home</a></p>
-          <p><a href="services.html">Services</a></p>
-          <p><a href="case-study.html">Case Studies</a></p>
-        </div>
-        <div>
-          <h4 style="margin-bottom: 16px; color: var(--accent-gold);">Legal</h4>
-          <p><a href="#">Privacy Policy</a></p>
-          <p><a href="#">Terms of Service</a></p>
-        </div>
-        <div>
-          <h4 style="margin-bottom: 16px; color: var(--accent-gold);">Contact</h4>
-          <p style="color: var(--text-muted); font-size: 14px;">Consultations by appointment.</p>
-        </div>
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand-name" style="margin-bottom:16px;">Jimmy Accounting</div>
+        <p style="color:var(--text-muted); font-size:14px; max-width:32ch;">High-precision corporate bookkeeping and tax advisement for commercial entities.</p>
       </div>
-      <div class="footer-bottom">
-        <div>&copy; 2026 Jimmy Bookkeeping. All Rights Reserved.</div>
+      <div>
+        <div class="mono" style="color:var(--accent-gold); margin-bottom:16px;">Navigation</div>
+        <p><a href="index.html" style="color:var(--text-muted); font-size:14px;">Firm Home</a></p>
+        <p><a href="services.html" style="color:var(--text-muted); font-size:14px;">Capabilities</a></p>
+        <p><a href="about.html" style="color:var(--text-muted); font-size:14px;">Governance</a></p>
+        <p><a href="case-study.html" style="color:var(--text-muted); font-size:14px;">Case Studies</a></p>
+      </div>
+      <div>
+        <div class="mono" style="color:var(--accent-gold); margin-bottom:16px;">Direct Office</div>
+        <p style="color:var(--text-muted); font-size:14px;">USA</p>
+        <p style="color:var(--text-muted); font-size:14px;">jimmyservices12@gmail.com</p>
+      </div>
+      <div>
+        <div class="mono" style="color:var(--accent-gold); margin-bottom:16px;">Compliance</div>
+        <p style="color:var(--text-muted); font-size:14px;">Certified QuickBooks ProAdvisors</p>
+        <p style="color:var(--text-muted); font-size:14px;">Encrypted Data Pipelines</p>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Jimmy Bookkeeping, Accounting &amp; Tax Services. All corporate rights reserved.</span>
+      <span>all nationwide USA</span>
+    </div>
+  </div>
+</footer>
 
+<script src="js/main.js"></script>
 </body>
 </html>
