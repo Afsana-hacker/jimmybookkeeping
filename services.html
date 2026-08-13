@@ -6,28 +6,100 @@
 <title>Services &amp; Architecture | Jimmy Bookkeeping ,Accounting &amp; Tax Services</title>
 <link rel="icon" type="image/svg+xml" href="images/logo.svg">
 <meta name="description" content="Comprehensive tier breakdowns and estimation modeling for enterprise accounting services.">
-<link rel="stylesheet" href="css/style.css?v=101">
+<link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
-<body>
+<!-- Consultation Popup Modal -->
+<div class="modal-overlay" id="consultModal">
+  <div class="modal-container">
+    <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+    <div class="consult-form-container">
+      <h2>Initiate Practice Retainer</h2>
+      <p class="form-desc">Complete the formal inquiry protocol below. Our senior desk evaluates all corporate submissions within 24 hours.</p>
+      
+      <form id="consultationForm" method="POST">
+        <input type="hidden" name="access_key" value="e2ac6dbc-7b9f-40e2-932b-87dc95ccae51">
+        
+        <div class="form-row">
+          <div class="field">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Arthur" required>
+          </div>
+          <div class="field">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="Pendelton" required>
+          </div>
+        </div>
 
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Corporate Email</label>
+            <input type="email" id="email" name="email" placeholder="a.pendelton@enterprise.com" required>
+          </div>
+          <div class="field">
+            <label for="phone">Direct Contact Line</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (310) 000-0000">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field full">
+            <label for="service">Requested Practice Area</label>
+            <select id="service" name="service">
+              <option value="Select Area">Select Practice Area...</option>
+              <option value="Foundation Setup">Foundation Setup</option>
+              <option value="Monthly Bookkeeping">Monthly Bookkeeping</option>
+              <option value="Full Service Management">Full Service Management</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="dynamicFieldGroup" class="form-row"></div>
+
+        <div class="form-row">
+          <div class="field full">
+            <label for="notes">Commercial Context &amp; Objectives</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Brief details regarding current software, entity model, and primary accounting objectives..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn" style="width:100%; margin-top:16px;">Submit Consultation Request</button>
+      </form>
+    </div>
+  </div>
+</div>
+<body>
 <header>
-  <div class="nav">
-    <a href="index.html" class="brand" style="display:flex; align-items:center; gap:16px;">
-      <img src="images/logo.svg" alt="Jimmy Corporate Monogram" style="height:52px; width:52px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
+  <div class="nav wrap">
+    <a href="index.html" class="brand">
+      <img src="images/logo.svg" alt="Jimmy Corporate Monogram" class="brand-logo">
       <div class="brand-name">
         Jimmy Accounting 
-        <span style="color:var(--accent-gold); font-family:var(--font-mono); font-size:10px; letter-spacing:0.18em; display:block;">CORPORATE PRACTICE</span>
+        <span>CORPORATE PRACTICE</span>
       </div>
     </a>
 
-    <nav class="links">
-      <a href="index.html">Firm</a>
-      <a href="services.html" class="active">Services &amp; Architecture</a>
+    <!-- Hamburger Menu Toggle Button for Mobile/Tablet -->
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation Drawer Links -->
+    <nav class="links" id="navLinks">
+      <div class="mobile-drawer-header">
+        <div class="brand-name">Jimmy Accounting</div>
+        <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+      </div>
+      <a href="index.html" class="active">Firm</a>
+      <a href="services.html">Services &amp; Architecture</a>
       <a href="about.html">Governance</a>
+      <a href="case-study.html">Case Studies</a>
       <a href="contact.html">Consultation</a>
-      <a href="contact.html" class="btn">Retain Practice</a>
+      <button class="btn btn-trigger-modal">Retain Practice</button>
     </nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
   </div>
 </header>
 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Cash Flow Optimization | Jimmy Accounting</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav wrap">
+    <a href="index.html" class="brand">
+      <img src="images/logo.svg" alt="Jimmy Corporate Monogram" class="brand-logo">
+      <div class="brand-name">Jimmy Accounting <span>CORPORATE PRACTICE</span></div>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <nav class="links" id="navLinks">
+      <div class="mobile-drawer-header">
+        <div class="brand-name">Jimmy Accounting</div>
+        <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+      </div>
+      <a href="index.html">Firm</a>
+      <a href="services.html">Services &amp; Architecture</a>
+      <a href="about.html">Governance</a>
+      <a href="case-study.html" class="active">Case Studies</a>
+      <a href="contact.html">Consultation</a>
+      <button class="btn btn-trigger-modal">Retain Practice</button>
+    </nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+  </div>
+</header>
+
+<main class="wrap section-pad">
+  <a href="case-study.html" class="mono" style="display:inline-block; margin-bottom:24px;">&larr; Back to Case Studies</a>
+  <div class="eyebrow">E-Commerce Operations</div>
+  <h1 class="headline" style="margin-bottom:16px;">Global Cash Flow Optimization</h1>
+  <p class="lead">Integrated multi-currency tracking and automated payment gateway reconciliations.</p>
+
+  <div class="card-grid" style="grid-template-columns: 2fr 1fr; margin-top:40px;">
+    <div class="card" style="grid-column: span 1;">
+      <h3 style="margin-bottom:16px;">Engagement Executive Summary</h3>
+      <p>High-volume e-commerce enterprise experienced significant cash flow visibility gaps due to delayed payment gateway settlements across multiple international currencies.</p>
+      
+      <h4 style="color:var(--accent-gold); margin: 24px 0 12px; font-family:var(--font-mono);">Strategic Solution</h4>
+      <p>Implemented real-time API-driven ledger integration connecting merchant accounts, payment processors, and prime banking feeds.</p>
+
+      <h4 style="color:var(--accent-gold); margin: 24px 0 12px; font-family:var(--font-mono);">Quantifiable Outcomes</h4>
+      <ul style="color:var(--text-muted); padding-left:20px; line-height:1.8;">
+        <li>Reduced month-end closing timelines by 60%.</li>
+        <li>Eliminated currency conversion loss discrepancies.</li>
+        <li>Established real-time working capital dashboards for executive management.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="mono">Key Metrics</div>
+      <div style="font-size:32px; font-weight:700; color:var(--accent-gold); margin: 16px 0 4px;">60%</div>
+      <p style="font-size:13px; color:var(--text-dim); margin-bottom:24px;">Closing Time Reduction</p>
+
+      <div style="font-size:32px; font-weight:700; color:var(--accent-gold); margin: 16px 0 4px;">100%</div>
+      <p style="font-size:13px; color:var(--text-dim); margin-bottom:24px;">Gateway Automated Reconciliation</p>
+
+      <button class="btn btn-trigger-modal" style="width:100%; margin-top:20px;">Request Similar Mandate</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-bottom">
+    <div>&copy; Jimmy Accounting Corporate Practice. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="consultModal">
+  <div class="modal-container">
+    <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+    <div class="consult-form-container">
+      <h2>Initiate Practice Retainer</h2>
+      <p class="form-desc">Complete the formal inquiry protocol below.</p>
+      <form id="consultationForm" method="POST">
+        <input type="hidden" name="access_key" value="e2ac6dbc-7b9f-40e2-932b-87dc95ccae51">
+        <div class="form-row">
+          <div class="field"><label for="fname">First Name</label><input type="text" id="fname" name="fname" required></div>
+          <div class="field"><label for="lname">Last Name</label><input type="text" id="lname" name="lname" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field full"><label for="email">Corporate Email</label><input type="email" id="email" name="email" required></div>
+        </div>
+        <button type="submit" class="btn" style="width:100%; margin-top:16px;">Submit Consultation Request</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
