@@ -61,7 +61,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Dynamic Form Field Injection
+  // 3. Smooth Section Scroll Fix (Offset for Sticky Header)
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
+  anchorLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#' || targetId === '') return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        closeMobileNav(); // Close mobile drawer if link clicked
+
+        const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // 4. Dynamic Form Field Injection
   if (serviceSelect && dynamicField) {
     serviceSelect.addEventListener('change', (e) => {
       const value = e.target.value;
@@ -94,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Form Submission Handling
+  // 5. Form Submission Handling
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -124,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Retainer Interactive Estimator (Services Page)
+  // 6. Retainer Interactive Estimator (Services Page)
   const calcTx = document.getElementById('calc_tx');
   const calcOutput = document.getElementById('calc_output');
   if (calcTx && calcOutput) {
