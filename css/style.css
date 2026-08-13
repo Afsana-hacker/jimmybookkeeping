@@ -263,6 +263,7 @@ p.lead { font-size: 17px; color: var(--text-muted); margin-bottom: 36px; max-wid
 
 /* Cards Grid */
 .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.detail-grid { grid-template-columns: 2fr 1fr; margin-top: 40px; }
 .card {
   background: var(--bg-raised); 
   padding: 34px 26px; 
@@ -452,16 +453,11 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
   p.lead { margin-left: auto; margin-right: auto; }
   .card-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-}
 
-@media (max-width: 768px) {
-  html { scroll-padding-top: 70px; }
-  .wrap { padding: 0 16px; }
-  
-  .nav-toggle { 
-    display: flex; 
+  .nav-toggle {
+    display: flex;
   }
-  
+
   nav.links {
     position: fixed;
     top: 0;
@@ -478,11 +474,11 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
     transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: -10px 0 30px rgba(0,0,0,0.8);
   }
-  
+
   nav.links.active {
     right: 0 !important;
   }
-  
+
   .mobile-drawer-header {
     display: flex;
     justify-content: space-between;
@@ -492,7 +488,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
     border-bottom: 1px solid var(--border-subtle);
     margin-bottom: 12px;
   }
-  
+
   .drawer-close {
     background: transparent;
     border: none;
@@ -500,14 +496,15 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
     font-size: 28px;
     cursor: pointer;
   }
-  
-  .nav-backdrop {
-    display: none;
-  }
 
   .nav-backdrop.active {
     display: block !important;
   }
+}
+
+@media (max-width: 768px) {
+  html { scroll-padding-top: 70px; }
+  .wrap { padding: 0 16px; }
 
   .hero { padding: 40px 0 30px; }
   h1.headline { font-size: 30px; line-height: 1.2; }
@@ -517,6 +514,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
   .section-head { margin-bottom: 28px; }
   
   .card-grid { grid-template-columns: 1fr; gap: 16px; }
+  .detail-grid { grid-template-columns: 1fr; }
   .card { padding: 24px 18px; }
   .card h3 { font-size: 22px; }
 
