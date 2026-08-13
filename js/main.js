@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Sidebar Drawer Selectors
+  // Navigation Selectors
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   const drawerClose = document.getElementById('drawerClose');
@@ -10,34 +10,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalClose = document.getElementById('modalClose');
   const modalTriggers = document.querySelectorAll('.btn-trigger-modal');
 
-  // Form Selectors
+  // Form & Dynamic Selectors
   const form = document.getElementById('consultationForm');
   const serviceSelect = document.getElementById('service');
   const dynamicField = document.getElementById('dynamicFieldGroup');
 
-  // 1. Mobile Drawer Navigation Logic
+  // --- 1. Mobile Drawer Navigation ---
   function openMobileNav() {
-    if (navLinks && navBackdrop) {
-      navLinks.classList.add('open');
-      navBackdrop.classList.add('active');
-      document.body.classList.add('no-scroll');
-    }
+    if (navLinks) navLinks.classList.add('active');
+    if (navBackdrop) navBackdrop.classList.add('active');
+    document.body.classList.add('no-scroll');
   }
 
   function closeMobileNav() {
-    if (navLinks && navBackdrop) {
-      navLinks.classList.remove('open');
-      navBackdrop.classList.remove('active');
-      document.body.classList.remove('no-scroll');
-    }
+    if (navLinks) navLinks.classList.remove('active');
+    if (navBackdrop) navBackdrop.classList.remove('active');
+    document.body.classList.remove('no-scroll');
   }
 
-  if (navToggle) navToggle.addEventListener('click', openMobileNav);
+  if (navToggle) navToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    openMobileNav();
+  });
+
   if (drawerClose) drawerClose.addEventListener('click', closeMobileNav);
   if (navBackdrop) navBackdrop.addEventListener('click', closeMobileNav);
 
-  // 2. Consultation Modal Open/Close Logic
-  function openModal() {
+  // Auto-close drawer when clicking internal links
+  const drawerAnchors = navLinks ? navLinks.querySelectorAll('a') : [];
+  drawerAnchors.forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  // --- 2. Consultation Modal Logic ---
+  function openModal(e) {
+    if (e) e.preventDefault();
     closeMobileNav();
     if (consultModal) {
       consultModal.classList.add('active');
@@ -61,31 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Smooth Section Scroll Fix (Offset for Sticky Header)
-  const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  anchorLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#' || targetId === '') return;
-
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        closeMobileNav(); // Close mobile drawer if link clicked
-
-        const headerHeight = document.querySelector('header')?.offsetHeight || 80;
-        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - headerHeight;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-
-  // 4. Dynamic Form Field Injection
+  // --- 3. Dynamic Form Field Injection ---
   if (serviceSelect && dynamicField) {
     serviceSelect.addEventListener('change', (e) => {
       const value = e.target.value;
@@ -118,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Form Submission Handling
+  // --- 4. Form Submission Handling ---
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -148,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Retainer Interactive Estimator (Services Page)
+  // --- 5. Retainer Interactive Estimator ---
   const calcTx = document.getElementById('calc_tx');
   const calcOutput = document.getElementById('calc_output');
   if (calcTx && calcOutput) {
