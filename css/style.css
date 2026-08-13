@@ -231,6 +231,12 @@ nav.links a:hover, nav.links a.active { color: var(--accent-gold); }
   gap: 48px; 
   align-items: center; 
 }
+.split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
 .eyebrow { 
   color: var(--accent-gold); 
   font-weight: 600; 
@@ -264,6 +270,32 @@ p.lead { font-size: 17px; color: var(--text-muted); margin-bottom: 36px; max-wid
 /* Cards Grid */
 .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .detail-grid { grid-template-columns: 2fr 1fr; margin-top: 40px; }
+
+/* Reconciliation Bar Chart Visual */
+.visual-graphic {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  width: 100%;
+}
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 180px;
+  margin: 20px 0;
+}
+.bar {
+  flex: 1;
+  min-width: 0;
+  background: var(--border-strong);
+  border-radius: 4px 4px 0 0;
+  transition: var(--transition);
+}
+.bar.active {
+  background: var(--gold-gradient);
+}
 .card {
   background: var(--bg-raised); 
   padding: 34px 26px; 
@@ -449,6 +481,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
 @media (max-width: 1024px) {
   .wrap { padding: 0 24px; }
   .hero-grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+  .split-grid { grid-template-columns: 1fr; gap: 32px; }
   .eyebrow { justify-content: center; }
   p.lead { margin-left: auto; margin-right: auto; }
   .card-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
