@@ -458,7 +458,9 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
   html { scroll-padding-top: 70px; }
   .wrap { padding: 0 16px; }
   
-  .nav-toggle { display: flex; }
+  .nav-toggle { 
+    display: flex; 
+  }
   
   nav.links {
     position: fixed;
@@ -477,8 +479,8 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
     box-shadow: -10px 0 30px rgba(0,0,0,0.8);
   }
   
-  nav.links.open {
-    right: 0;
+  nav.links.active {
+    right: 0 !important;
   }
   
   .mobile-drawer-header {
@@ -499,8 +501,12 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
     cursor: pointer;
   }
   
+  .nav-backdrop {
+    display: none;
+  }
+
   .nav-backdrop.active {
-    display: block;
+    display: block !important;
   }
 
   .hero { padding: 40px 0 30px; }
