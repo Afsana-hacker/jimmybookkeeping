@@ -46,6 +46,7 @@
 
 html { 
   scroll-behavior: smooth; 
+  scroll-padding-top: 90px; /* Precise Sticky Header Offset */
   overflow-x: hidden; 
   width: 100%;
 }
@@ -121,7 +122,7 @@ header {
   width: 100%;
 }
 
-.brand { display: flex; align-items: center; gap: 14px; }
+.brand { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
 .brand-logo { height: 48px; width: 48px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5)); }
 .brand-name { 
   font-family: var(--font-heading); 
@@ -147,6 +148,7 @@ nav.links a {
   color: var(--text-muted); 
   transition: var(--transition); 
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 nav.links a:hover, nav.links a.active { color: var(--accent-gold); }
 
@@ -259,7 +261,7 @@ p.lead { font-size: 17px; color: var(--text-muted); margin-bottom: 36px; max-wid
 .section-head h2 { font-size: clamp(30px, 3.5vw, 44px); margin-bottom: 16px; font-family: var(--font-luxury); }
 .section-head p { color: var(--text-muted); font-size: 16px; }
 
-/* Cards Grid & Chain Effect Pattern */
+/* Cards Grid */
 .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .card {
   background: var(--bg-raised); 
@@ -268,6 +270,9 @@ p.lead { font-size: 17px; color: var(--text-muted); margin-bottom: 36px; max-wid
   transition: var(--transition);
   position: relative; 
   border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card::before {
@@ -305,16 +310,6 @@ p.lead { font-size: 17px; color: var(--text-muted); margin-bottom: 36px; max-wid
   margin-bottom: 20px; 
   line-height: 1.6; 
 }
-
-/* Graphic Section */
-.visual-graphic {
-  width: 100%; height: 280px; background: var(--bg-card);
-  border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
-  display: flex; flex-direction: column; justify-content: space-between; padding: 24px;
-}
-.visual-graphic .bar-chart { display: flex; align-items: flex-end; gap: 12px; height: 140px; }
-.visual-graphic .bar { flex: 1; background: var(--border-strong); border-radius: 2px 2px 0 0; }
-.visual-graphic .bar.active { background: var(--accent-gold); }
 
 /* Luxury Consultation Form */
 .consult-form-container {
@@ -387,13 +382,13 @@ p.lead { font-size: 17px; color: var(--text-muted); margin-bottom: 36px; max-wid
 
 .field input:focus, 
 .field select:focus, 
-.field textarea:focus {
+  .field textarea:focus {
   border-color: var(--accent-gold); 
   background: var(--bg); 
   box-shadow: 0 0 12px var(--accent-gold-glow);
 }
 
-/* Consultation Popup Modal System */
+/* Modal System */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -449,10 +444,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
   font-size: 13px; 
 }
 
-/* -------------------------------------------------------------
-   RESPONSIVE DESIGN (MOBILE, TABLET & LAPTOP)
-------------------------------------------------------------- */
-
+/* RESPONSIVE DESIGN (MOBILE, TABLET & LAPTOP) */
 @media (max-width: 1024px) {
   .wrap { padding: 0 24px; }
   .hero-grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
@@ -463,9 +455,9 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
 }
 
 @media (max-width: 768px) {
+  html { scroll-padding-top: 70px; }
   .wrap { padding: 0 16px; }
   
-  /* Mobile Sidebar Navigation Drawer */
   .nav-toggle { display: flex; }
   
   nav.links {
@@ -522,9 +514,6 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
   .card { padding: 24px 18px; }
   .card h3 { font-size: 22px; }
 
-  .visual-graphic { height: auto; min-height: 240px; }
-  
-  /* Full Screen Form Handling */
   .consult-form-container { 
     padding: 20px 14px; 
     outline-offset: -3px;
@@ -537,7 +526,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
   .field select, 
   .field textarea { 
     padding: 12px; 
-    font-size: 16px; /* Prevents auto-zoom on iOS */
+    font-size: 16px;
     min-height: 46px; 
   }
   
