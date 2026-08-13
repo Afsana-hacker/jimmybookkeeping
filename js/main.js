@@ -1,9 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Advanced Dynamic Contact Form Logic
+  // Mobile Sidebar Drawer Selectors
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  const drawerClose = document.getElementById('drawerClose');
+  const navBackdrop = document.getElementById('navBackdrop');
+
+  // Popup Modal Selectors
+  const consultModal = document.getElementById('consultModal');
+  const modalClose = document.getElementById('modalClose');
+  const modalTriggers = document.querySelectorAll('.btn-trigger-modal');
+
+  // Form Selectors
   const form = document.getElementById('consultationForm');
   const serviceSelect = document.getElementById('service');
   const dynamicField = document.getElementById('dynamicFieldGroup');
 
+  // 1. Mobile Drawer Navigation Logic
+  function openMobileNav() {
+    if (navLinks && navBackdrop) {
+      navLinks.classList.add('open');
+      navBackdrop.classList.add('active');
+      document.body.classList.add('no-scroll');
+    }
+  }
+
+  function closeMobileNav() {
+    if (navLinks && navBackdrop) {
+      navLinks.classList.remove('open');
+      navBackdrop.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
+  if (navToggle) navToggle.addEventListener('click', openMobileNav);
+  if (drawerClose) drawerClose.addEventListener('click', closeMobileNav);
+  if (navBackdrop) navBackdrop.addEventListener('click', closeMobileNav);
+
+  // 2. Consultation Modal Open/Close Logic
+  function openModal() {
+    closeMobileNav();
+    if (consultModal) {
+      consultModal.classList.add('active');
+      document.body.classList.add('no-scroll');
+    }
+  }
+
+  function closeModal() {
+    if (consultModal) {
+      consultModal.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    }
+  }
+
+  modalTriggers.forEach(btn => btn.addEventListener('click', openModal));
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+
+  if (consultModal) {
+    consultModal.addEventListener('click', (e) => {
+      if (e.target === consultModal) closeModal();
+    });
+  }
+
+  // 3. Dynamic Form Field Injection
   if (serviceSelect && dynamicField) {
     serviceSelect.addEventListener('change', (e) => {
       const value = e.target.value;
@@ -36,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 4. Form Submission Handling
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -50,9 +109,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (result.success) {
           form.innerHTML = `
-            <div style="text-align:center; padding: 60px 20px;">
-              <h3 style="font-size:28px; color:var(--accent-gold); margin-bottom:16px;">Engagement Request Received</h3>
-              <p style="color:var(--text-muted); max-width:40ch; margin:0 auto;">Your requirements have been securely logged. Our senior partner will review your profile and initiate contact within 24 hours.</p>
+            <div style="text-align:center; padding: 40px 10px;">
+              <h3 style="font-size:24px; color:var(--accent-gold); margin-bottom:12px;">Engagement Request Received</h3>
+              <p style="color:var(--text-muted); font-size:14px; max-width:40ch; margin:0 auto;">Your requirements have been securely logged. Our senior partner will review your profile and initiate contact within 24 hours.</p>
             </div>
           `;
         } else {
@@ -65,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Interactive Calculator Logic (Services Page)
+  // 5. Retainer Interactive Estimator (Services Page)
   const calcTx = document.getElementById('calc_tx');
   const calcOutput = document.getElementById('calc_output');
   if (calcTx && calcOutput) {
