@@ -13,7 +13,7 @@
 
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Jimmy Bookkeeping ,  Accounting &amp; Tax Services | Bookkeeping, Accounting &amp; Tax services | USA">
+<meta property="og:title" content="Jimmy Bookkeeping , Accounting &amp; Tax Services | Bookkeeping, Accounting &amp; Tax services | USA">
 <meta property="og:description" content="Precision bookkeeping and accounting for growth minded businesses in usa. Structured, accurate, built to last.">
 <meta property="og:url" content="/">
 <meta property="og:site_name" content="Jimmy Bookkeeping , Accounting &amp; Tax Services">
@@ -106,7 +106,7 @@
       <div>
         <div class="eyebrow mono">Institutional Financial Precision</div>
         <h1 class="headline">Books structured for <em>sovereign growth.</em></h1>
-        <p class="lead">Every set of financials must withstand institutional scrutiny. We engineer audit proof general ledgers, corporate tax compliance frameworks, and executive decision structures for all USA  enterprises.</p>
+        <p class="lead">Every set of financials must withstand institutional scrutiny. We engineer audit proof general ledgers, corporate tax compliance frameworks, and executive decision structures for all USA enterprises.</p>
         <div style="display:flex; gap:16px;">
           <a href="contact.html" class="btn">Initiate Engagement</a>
           <a href="services.html" class="btn btn-outline">Explore Capabilities</a>
@@ -196,7 +196,6 @@
       <div>
         <div class="mono" style="color:var(--accent-gold); margin-bottom:16px;">Direct Office</div>
         <p style="color:var(--text-muted); font-size:14px;">USA</p>
-        <p style="color:var(--text-muted); font-size:14px;"></p>
         <p style="color:var(--text-muted); font-size:14px;">jimmyservices12@gmail.com</p>
       </div>
       <div>
@@ -211,6 +210,66 @@
     </div>
   </div>
 </footer>
+
+<!-- Consultation Popup Modal (Placed correctly outside footer) -->
+<div class="modal-overlay" id="consultModal">
+  <div class="modal-container">
+    <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+    <div class="consult-form-container">
+      <h2>Initiate Practice Retainer</h2>
+      <p class="form-desc">Complete the formal inquiry protocol below. Our senior desk evaluates all corporate submissions within 24 hours.</p>
+      
+      <form id="consultationForm" method="POST">
+        <input type="hidden" name="access_key" value="e2ac6dbc-7b9f-40e2-932b-87dc95ccae51">
+        
+        <div class="form-row">
+          <div class="field">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Arthur" required>
+          </div>
+          <div class="field">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="Pendelton" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Corporate Email</label>
+            <input type="email" id="email" name="email" placeholder="a.pendelton@enterprise.com" required>
+          </div>
+          <div class="field">
+            <label for="phone">Direct Contact Line</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (310) 000-0000">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field full">
+            <label for="service">Requested Practice Area</label>
+            <select id="service" name="service">
+              <option value="Select Area">Select Practice Area...</option>
+              <option value="Foundation Setup">Foundation Setup</option>
+              <option value="Monthly Bookkeeping">Monthly Bookkeeping</option>
+              <option value="Full Service Management">Full Service Management</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="dynamicFieldGroup" class="form-row"></div>
+
+        <div class="form-row">
+          <div class="field full">
+            <label for="notes">Commercial Context &amp; Objectives</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Brief details regarding current software, entity model, and primary accounting objectives..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn" style="width:100%; margin-top:16px;">Submit Consultation Request</button>
+      </form>
+    </div>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
 </body>
