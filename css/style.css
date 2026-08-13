@@ -237,6 +237,11 @@ nav.links a:hover, nav.links a.active { color: var(--accent-gold); }
   gap: 64px;
   align-items: center;
 }
+.cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 .eyebrow { 
   color: var(--accent-gold); 
   font-weight: 600; 
@@ -482,6 +487,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border-subtle); padd
   .wrap { padding: 0 24px; }
   .hero-grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
   .split-grid { grid-template-columns: 1fr; gap: 32px; }
+  .cta-row { justify-content: center; }
   .eyebrow { justify-content: center; }
   p.lead { margin-left: auto; margin-right: auto; }
   .card-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
